@@ -45,8 +45,8 @@ def tint_rgba(src_path, dst_path, rgb, alpha_scale=1.0):
     )
     colored.save(dst_path, "PNG", optimize=True)
 
-VELVET_WINE = (107, 29, 47)     # #6B1D2F
-DUSTY_ROSE = (216, 180, 184)    # #D8B4B8
+VELVET_WINE = (130, 24, 36)     # #821824 (Đỏ đô sang trọng)
+DUSTY_ROSE = (223, 182, 186)    # #DFB6BA
 CHAMPAGNE = (200, 169, 126)     # #C8A97E
 
 tint_rgba(
@@ -217,15 +217,15 @@ def make_editorial_qr(dst_path, bank_name, account_holder, account_no, role_labe
             if grid[y][x] == 1:
                 px = qx + x * cell
                 py = qy + y * cell
-                draw.rounded_rectangle([px + 1, py + 1, px + cell - 1, py + cell - 1], radius=2, fill=(70, 17, 30))
+                draw.rounded_rectangle([px + 1, py + 1, px + cell - 1, py + cell - 1], radius=2, fill=(99, 17, 27))
 
     cx, cy = qx + qr_size // 2, qy + qr_size // 2
     draw.rounded_rectangle([cx - 36, cy - 34, cx + 36, cy + 34], radius=14, fill=(250, 246, 240), outline=VELVET_WINE, width=3)
-    draw.text((cx, cy), "A&H", fill=VELVET_WINE, font=f_badge, anchor="mm")
+    draw.text((cx, cy), "H&A", fill=VELVET_WINE, font=f_badge, anchor="mm")
 
     draw.text((W // 2, 634), account_holder, fill=(45, 19, 26), font=f_acc, anchor="mm")
     draw.text((W // 2, 682), f"STK: {account_no}", fill=VELVET_WINE, font=f_acc, anchor="mm")
-    draw.text((W // 2, 742), "Lâm Anh & Phúc Hiếu • 20.12.2026", fill=(122, 82, 90), font=f_sub, anchor="mm")
+    draw.text((W // 2, 742), "Phúc Hiếu & Lâm Anh • 20.12.2026", fill=(122, 82, 90), font=f_sub, anchor="mm")
 
     card.save(dst_path, "PNG", optimize=True)
 
@@ -246,16 +246,16 @@ make_editorial_qr(
     seed=201220269,
 )
 
-# 5. Favicon A&H Seal in Velvet Rosé Wine & Champagne Gold
+# 5. Favicon H&A Seal in Đỏ Đô & Champagne Gold
 fav = Image.new("RGBA", (256, 256), (0, 0, 0, 0))
 fd = ImageDraw.Draw(fav)
-fd.ellipse([12, 12, 244, 244], fill=(107, 29, 47, 255), outline=(200, 169, 126, 255), width=7)
+fd.ellipse([12, 12, 244, 244], fill=(130, 24, 36, 255), outline=(200, 169, 126, 255), width=7)
 fd.ellipse([28, 28, 228, 228], outline=(216, 180, 184, 180), width=2)
 try:
     f_fav = ImageFont.truetype(r"C:\Windows\Fonts\timesbi.ttf", 82)
 except Exception:
     f_fav = ImageFont.load_default()
-fd.text((128, 128), "A&H", fill=(250, 246, 240, 255), font=f_fav, anchor="mm")
+fd.text((128, 128), "H&A", fill=(250, 246, 240, 255), font=f_fav, anchor="mm")
 fav.save(os.path.join(DST_DIR, "images", "favicon.png"), "PNG", optimize=True)
 
 # 6. Vogue Editorial OG Share Card (1200x630)
@@ -294,7 +294,7 @@ except Exception:
 cx_og = 865
 og_draw.text((cx_og, 115), "THIỆP MỜI LỄ CƯỚI", fill=VELVET_WINE, font=f_og_kicker, anchor="mm")
 og_draw.text((cx_og, 215), "Save the date", fill=VELVET_WINE, font=f_og_script, anchor="mm")
-og_draw.text((cx_og, 330), "Lâm Anh & Phúc Hiếu", fill=(45, 19, 26), font=f_og_names, anchor="mm")
+og_draw.text((cx_og, 330), "Phúc Hiếu & Lâm Anh", fill=(45, 19, 26), font=f_og_names, anchor="mm")
 og_draw.line([(cx_og - 110, 392), (cx_og + 110, 392)], fill=CHAMPAGNE, width=2)
 og_draw.text((cx_og, 445), "Chủ Nhật • 20 . 12 . 2026", fill=VELVET_WINE, font=f_og_date, anchor="mm")
 og_draw.text((cx_og, 512), "Trân trọng kính mời Quý Khách tới chung vui", fill=(122, 82, 90), font=f_og_kicker, anchor="mm")

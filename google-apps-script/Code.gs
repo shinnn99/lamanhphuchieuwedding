@@ -1,9 +1,9 @@
 /**
- * Nhận dữ liệu từ thiệp cưới online Lâm Anh - Phúc Hiếu và ghi vào Google Sheet.
+ * Nhận dữ liệu từ thiệp cưới online Phúc Hiếu - Lâm Anh và ghi vào Google Sheet.
  *
  * - Form "Sổ lưu bút"        -> tab "Sổ lưu bút"
  * - Form "Xác nhận tham dự"  -> tab "Xác nhận tham dự"
- * Tab và dòng tiêu đề (tone Velvet Rosé Wine #6B1D2F) được tự tạo ở lần gửi đầu tiên.
+ * Tab và dòng tiêu đề (tone Đỏ Đô #821824) được tự tạo ở lần gửi đầu tiên.
  */
 
 const TIMEZONE = 'Asia/Ho_Chi_Minh';
@@ -61,7 +61,7 @@ function doPost(e) {
       sh.appendRow(cfg.headers);
       sh.getRange(1, 1, 1, cfg.headers.length)
         .setFontWeight('bold')
-        .setBackground('#6B1D2F')
+        .setBackground('#821824')
         .setFontColor('#FAF6F0');
       sh.setFrozenRows(1);
     }

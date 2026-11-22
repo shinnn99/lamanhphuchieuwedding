@@ -1,6 +1,6 @@
-# lamanhphuchieuwedding — Thiệp Cưới Online Lâm Anh - Phúc Hiếu
+# lamanhphuchieuwedding — Thiệp Cưới Online Phúc Hiếu - Lâm Anh
 
-Thiết kế độc bản theo phong cách **Vogue Editorial & Arch Lookbook** kết hợp bảng màu riêng **Velvet Rosé Wine & Champagne Silk** dành cho lễ cưới của **Lâm Anh - Phúc Hiếu**.
+Thiết kế độc bản kết hợp bảng màu **Đỏ Đô & Kem Lụa Champagne** dành cho lễ cưới của **Phúc Hiếu - Lâm Anh**.
 
 ## ✨ Điểm Khác Biệt Hoàn Toàn Của Thiết Kế
 

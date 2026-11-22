@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE = 'https://lamanhphuchieu.site/';
-const COUPLE = 'Lâm Anh - Phúc Hiếu';
+const COUPLE = 'Phúc Hiếu - Lâm Anh';
 const WEDDING_DATE_TEXT = 'Chủ nhật, 20.12.2026';
 const INDEX_PATH = path.join(process.cwd(), 'index.html');
 
