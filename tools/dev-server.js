@@ -2,10 +2,11 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { URL } = require('url');
-const inviteHandler = require('./api/invite.js');
 
 const PORT = Number(process.env.PORT) || 8088;
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, '..');
+process.chdir(ROOT);
+const inviteHandler = require(path.join(ROOT, 'api', 'invite.js'));
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -29,7 +30,6 @@ const server = http.createServer((req, res) => {
   const parsed = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   const pathname = decodeURIComponent(parsed.pathname);
 
-  // Route SSR cá nhân hóa tên khách giống cấu hình vercel.json
   if (
     (pathname === '/' || pathname === '/api/invite') &&
     (parsed.searchParams.has('xh') ||
@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
   ) {
     const query = Object.fromEntries(parsed.searchParams.entries());
     return inviteHandler(
-      { query },
+      { query, headers: req.headers },
       {
         setHeader: (k, v) => res.setHeader(k, v),
         status: (code) => ({
@@ -67,7 +67,6 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(safePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-    // Hỗ trợ HTTP Range cho file nhạc MP3 tua/phát mượt trên mọi trình duyệt
     const range = req.headers.range;
     if (range && ext === '.mp3') {
       const parts = range.replace(/bytes=/, '').split('-');

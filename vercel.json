@@ -1,4 +1,7 @@
 {
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": ".",
   "functions": {
     "api/invite.js": { "includeFiles": "index.html" }
   },
