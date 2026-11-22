@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "api/invite.js": { "includeFiles": "index.html" }
+  },
+  "routes": [
+    { "src": "/", "has": [{ "type": "query", "key": "ten" }], "dest": "/api/invite" },
+    { "src": "/", "has": [{ "type": "query", "key": "xh" }], "dest": "/api/invite" },
+    { "src": "/", "has": [{ "type": "query", "key": "to" }], "dest": "/api/invite" },
+    { "handle": "filesystem" }
+  ]
+}

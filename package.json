@@ -1,0 +1,11 @@
+{
+  "name": "thiep-cuoi-lam-anh-phuc-hieu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Thiệp cưới online The Wedding Issue | Lâm Anh - Phúc Hiếu",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "assets": "python tools/prepare_demo_assets.py"
+  }
+}
